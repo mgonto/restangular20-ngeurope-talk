@@ -1,8 +1,8 @@
-## Are your SPAs safe?
+## Restangular 2.0: The future and beyond
 
-This are the slides for the talk we're doing in Seattle Code Camp.
+This are the slides for the talk I'm doing in ngEurope.
 
-You can see them at http://mgonto.github.io/are-your-SPAs-safe-talk
+You can see them at http://mgonto.github.io/restangular20-ngeurope-talk
 
 ## Thanks
 
