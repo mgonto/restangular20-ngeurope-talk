@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Restangular 2.0: The future and beyond</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/prism.css">
+        <link rel="stylesheet" href="css/custom.css">
+    </head>
+    <body>
+    <article>
+      <section data-bespoke-state="start">
+        <div class="content">
+          <div class="unbrokenline"></div>
+          <h1>Restangular 2.0</h1>
+          <h4>The future and beyond</h4>
+          <div class="byline">
+            <div class="classy">
+              by Martin Gontovnikas
+            </div>
+          </div>
+          <div class="profile">
+            <div class="rounded-image">
+              <img src="img/gonto.jpeg">
+            </div>
+            <h3>@mgonto</h3>
+          </div>
+        </div>
+      </section>
+
+      <section data-bespoke-state="developer">
+        <div class="content">
+          <div class="byline">
+            <div class="classy">
+              I am a
+            </div>
+          </div>
+          <h2>software developer</h2>
+          <div class="byline">
+            <div class="classy">
+              from Buenos Aires, Argentina
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-bespoke-state="auth0">
+        <div class="content">
+          <div class="byline">
+            <div class="classy">
+              working at
+            </div>
+          </div>
+          <h3>Auth0 Inc.</h3>
+          <div class="byline">
+            <div class="classy">
+              making stuff happen
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-bespoke-state="js">
+        <div class="content">
+          <div class="byline">
+            <div class="classy">
+              used to be coding
+            </div>
+          </div>
+          <h3>Javascript</h3>
+          <div class="byline">
+            <div class="classy">
+              all day long
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-bespoke-state="programming">
+        <div class="content"></div>
+      </section>
+
+      <section data-bespoke-state="advocate">
+        <div class="content">
+          <div class="byline">
+            <div class="classy">
+              Now I work as a
+            </div>
+          </div>
+          <h3>Developer Advocate</h3>
+          <div class="unbrokenline"></div>
+        </div>
+      </section>
+
+      <section data-bespoke-state="smoke">
+        <div class="content"></div>
+      </section>
+
+      <section>
+        <div class="content">
+          <div class="byline">
+            <div class="classy">
+              We're here to learn about
+            </div>
+          </div>
+          <h3>Restangular 2.0</h3>
+          <div class="byline">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h2>We should start but...</h3>
+        </div>
+      </section>
+
+      <section data-bespoke-state="previously">
+        <div class="content">
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h2>I decided to learn AngularJS</h2>
+        </div>
+      </section>
+
+      <section data-bespoke-state="matrix">
+        <div class="content">
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h2>I tried using $resource for my model</h2>
+        </div>
+      </section>
+
+       <section data-bespoke-state="code">
+        <div class="content">
+          <p>Let's fetch an user</p>
+          <pre><code class="language-javascript">var User = $resource('/api/v1/user/:userId', {userId:'@id'});
+var user = User.get({userId:123}, function() {
+  user.name = 'Gonto';
+  user.$save();
+});</code></pre>
+
+          <p>Let's now fetch his Cars</p>
+          <pre><code class="language-javascript">var Car = $resource('/api/v1/user/:userId/cars/:carId',
+ {userId:123, carId:'@id'});
+
+ var cars = Car.query(function() {
+   var firstCar = cars[0];
+   firstCar.name = "Honda Fit";
+   firstCar.$save();
+ });</code></pre>
+        </div>
+      </section>
+
+      <section data-bespoke-state="britney">
+        <div class="content">
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h2>I didn't like it much so I built Restangular</h2>
+        </div>
+      </section>
+
+      <section data-bespoke-state="code">
+        <div class="content">
+          <p>First we configure it</p>
+          <pre data-line="1"><code class="language-javascript">RestangularProvider.setBaseUrl('/api/v1')</code></pre>
+
+          <p>Let's fetch an user</p>
+          <pre><code class="language-javascript">Restangular.one('user', 123).get().then(function(user) {
+  $scope.user = user;
+  user.name = 'Gonto';
+  user.put();
+});</code></pre>
+
+          <p>Let's now fetch his Cars</p>
+          <pre><code class="language-javascript">$scope.user.getList('cars').then(function(cars) {
+  var firstCar = cars[0];
+  firstCar.name = "Honda Fit";
+  firstCar.put();
+  cars.post({name: 'New Model Extra Cool'});
+});</code></pre>
+        </div>
+      </section>
+
+      <section data-bespoke-state="bttf">
+        <div class="content">
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h2>There're still a few cool things missing in Restangular</h2>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h2>That's why this talk is about Restangular 2.0</h2>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h2>So let's start</h2>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h1>Extending Models</h1>
+        </div>
+      </section>
+
+      <section data-bespoke-state="before long">
+        <div class="content">
+          <pre><code class="language-javascript"> Restangular.extendModel('users', function(model) {
+    model.getFullName = function() {
+      model.name + ' ' + model.lastName;
+    };
+    return model;
+  });</code></pre>
+        </div>
+      </section>
+
+      <section data-bespoke-state="after long">
+        <div class="content">
+          <pre><code class="language-javascript">class User extends RestangularResource {
+  getFullName() {
+    return this.name + ' ' + this.lastName;
+  }
+}</code></pre>
+<br />
+        <pre><code class="language-javascript">// You can set the class
+Restangular.config('users').setModelclass(User)
+// Or the service that will return the class
+Restangular.config('users').setModelclass('User')
+</code></pre>
+        </div>
+      </section>
+
+      <section data-bespoke-state="after long">
+        <div class="content">
+          <pre><code class="language-javascript">class RestangularBase extends Model {
+  save(params, headers) {
+    ...
+  }
+  ...
+}
+
+class RestangularResource extends RestangularBase {
+  put(elem, params, headers) {
+    ...
+  }
+  ...
+}
+
+class RestangularCollectionResource extends RestangularBase {
+  post(elem, params, headers) {
+    ...
+  }
+ ...
+}</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h1>Hooks</h1>
+        </div>
+      </section>
+
+      <section data-bespoke-state="before long">
+        <div class="content">
+          <pre><code class="language-javascript">Restangular.addRequestInterceptor(function(elem, operation, route, url) {
+  delete elem._id;
+  delete elem.extraInfo;
+  return elem
+});
+
+Restangular.addResponseInterceptor(function(data, operation, route, url, response) {
+  var rows = data.rows;
+  rows.metadata = data.metadata;
+  return rows;
+});</code></pre>
+        </div>
+      </section>
+
+      <section data-bespoke-state="after long">
+        <div class="content">
+          <pre><code class="language-javascript">class User extends RestangularResource {
+  static beforeRequest(elem, operation, fullUrl) {
+    delete elem._id;
+    delete elem.extraInfo;
+    return elem;
+  }
+
+  static parseResponse(data, operation, url, fullResponse) {
+    return data.user;
+  }
+}</code></pre></div>
+      </section>
+
+
+<section data-bespoke-state="after long">
+        <div class="content">
+          <pre><code class="language-javascript">Restangular.addRequestInterceptor(function(elem, operation, route, url) {
+  delete elem._id;
+  delete elem.extraInfo;
+  return elem
+});
+
+Restangular.addRequestInterceptor('users', function(elem, operation, route, url) {
+  delete elem._id;
+  delete elem.extraInfo;
+  return elem
+});</code></pre></div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h1>Inner resources</h1>
+        </div>
+      </section>
+
+      <section data-bespoke-state="before long">
+        <div class="content">
+          <pre><code class="language-javascript">Restangular.extendModel('users', function(user) {
+  Restangular.restangularizeCollection(user, user.messages, 'messages');
+  Restangular.restangularizeCollection(user, user.phones, 'telephones');
+});</code></pre>
+        </div>
+      </section>
+
+      <section data-bespoke-state="after long">
+        <div class="content">
+          <pre><code class="language-javascript">Restangular.config('users').relations({
+  hasMany: ['messages', {
+    field: 'phones',
+    route: 'telephones'}
+  ],
+  hasOne: 'address'
+})</code></pre>
+<br />
+<pre><code class="language-javascript">Restangular.one('users', 23).then(function(user) {
+  // POST /users/23/telephones
+  user.phones.post({number: 12345});
+
+  var message = MessageService.$new();
+  message.name = 'new message';
+  // Post to /users/123/messages
+  user.messages.post(message);
+});
+</code></pre>
+</div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h1>Custom services</h1>
+        </div>
+      </section>
+
+      <section data-bespoke-state="after long">
+        <div class="content">
+          <p>Custom configuration</p>
+          <pre><code class="language-javascript">function UserService() {
+  return Restangular.service('users')
+    .setModelclass(User)
+}</code></pre>
+<br />
+<pre><code class="language-javascript">
+  UserService.getAll(); // Returns User class
+  Restangular.all('users').getList() // Returns RestangularResource class
+</code></pre>
+</div>
+      </section>
+
+      <section data-bespoke-state="after long">
+        <div class="content">
+          <p>Global configuration</p>
+          <pre><code class="language-javascript">function config() {
+  Restangular.config('users').setModelclass(User)
+}
+
+function UserService() {
+  return Restangular.service('users');
+}</code></pre>
+<br />
+<pre><code class="language-javascript">
+  UserService.getAll(); // Returns User class
+  Restangular.all('users').getList() // Returns User class
+</code></pre>
+</div>
+      </section>
+
+      <section data-bespoke-state="after long">
+        <div class="content">
+<pre><code class="language-javascript">var user = UserService.$new(); // User class
+  user.name = 'Gonto';
+  user.save(); // Does a POST
+  user.name = 'New gonto name';
+  user.save(); // Does a put
+</code></pre>
+</div>
+      </section>
+
+      <section data-bespoke-state="after long">
+        <div class="content">
+<pre><code class="language-javascript">UserService.getAll().then(function(users) {
+  var newUser = UserService.$new();
+  users.post(newUser) // Adds it to the collection as well as in the server
+  users.remove(newUser) // Delete + Remove from collection
+});
+</code></pre>
+</div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h1>Inner structure</h1>
+        </div>
+      </section>
+
+
+      <section data-bespoke-state="before">
+        <div class="content">
+          <h2>Files in Restangular 1.0</h2>
+          <div class="fake-list">
+            <h4>- restangular.js</h4>
+          </ul>
+        </div>
+      </section>
+
+      <section data-bespoke-state="after">
+        <div class="content">
+          <h2>Files in Restangular 2.0</h2>
+          <div class="fake-list">
+            <h4>- models</h4>
+            <h4 class="tabbed">- restangularBase.js</h4>
+            <h4 class="tabbed">- restangularResource.js</h4>
+            <h4 class="tabbed">- restangularCollectionResource.js</h4>
+            <h4>- extensions</h4>
+            <h4 class="tabbed">- angularPromiseHandler.js</h4>
+            <h4 class="tabbed">- angularHttpHandler.js</h4>
+            <h4>- services</h4>
+            <h4 class="tabbed">- urlService.js</h4>
+            <h4 class="tabbed">- utils.js</h4>
+            <h4 class="tabbed">- fetchService.js</h4>
+            <h4 class="tabbed">- transformationService.js</h4>
+            <h4>- config.js</h4>
+            <h4>- restangular.js</h4>
+
+            <h4>- restangular.js</h4>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h1>Making the Angular part optional</h1>
+        </div>
+      </section>
+
+      <section data-bespoke-state="after long">
+        <div class="content">
+<pre><code class="language-javascript">// You can use Angular
+Restangular.setPromiseHandler(new AngularPromise($q));
+Restangular.setHttpHandler(new AngularHttp($http));
+// Or jQuery
+Restangular.setPromiseHandler(new QPromise(q));
+Restangular.setHttpHandler(new jQueryHttp($.ajax));
+</code></pre>
+</div>
+      </section>
+
+      <section data-bespoke-state="blow">
+        <div class="content">
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h2>This is still a work in progress</h2>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h2>Have suggestions?</h2>
+          <h2><a href="https://github.com/mgonto/restangular/issues/890">add them to the Github issue</a></h2>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <div class="byline">
+            <div class="classy">
+              This is the end of the presentation, so
+            </div>
+          </div>
+          <h3>Thank you for listening</h3>
+          <div class="byline">
+            <div class="classy">
+              or at least pretending to
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-bespoke-state="final" class="intro">
+        <div class="content">
+          <div class="byline">
+            <div class="classy">
+              This has been
+            </div>
+          </div>
+          <h1>Restangular 2.0</h1>
+          <h4>The future and beyond</h4>
+          <div class="byline">
+            <div class="classy">
+              by Martin Gontovnikas
+            </div>
+          </div>
+          <div class="profile">
+            <div class="rounded-image">
+              <img src="img/gonto.jpeg">
+            </div>
+            <h3>@mgonto</h3>
+          </div>
+        </div>
+      </section>
+
+    </article>
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Tauri::latin', 'Alegreya:400italic:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+    <script src="js/bespoke.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/deck.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.bootstrap.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/app.xss.js"></script>
+    </body>
+</html>
