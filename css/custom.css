@@ -241,7 +241,7 @@ article.before::before {
   -webkit-filter: none;
   -moz-filter: none;
   filter: none;
-  background-color: #CCC;
+  background-color: #999;
 }
 
 article.after::before {
@@ -287,4 +287,12 @@ article.after::before {
 
 .logo {
   width: 150px;
+}
+
+.fake-list.two-columns {
+  display: inline-block;
+  width: 550px;
+}
+.text-left {
+  text-align: left;
 }
