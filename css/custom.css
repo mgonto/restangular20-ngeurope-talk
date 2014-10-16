@@ -4,7 +4,7 @@
 
 .code,
 .livecode {
-  background-color: #142444;
+  background-color: #07B;
 }
 
 .full-width-img {
@@ -234,21 +234,21 @@ article.sub-subject::before {
   -webkit-filter: none;
   -moz-filter: none;
   filter: none;
-  background-color: green;
+  background-color: #07B;
 }
 
 article.before::before {
   -webkit-filter: none;
   -moz-filter: none;
   filter: none;
-  background-color: gray;
+  background-color: #CCC;
 }
 
 article.after::before {
   -webkit-filter: none;
   -moz-filter: none;
   filter: none;
-  background-color: green;
+  background-color: #07B;
 }
 
 .profile {
