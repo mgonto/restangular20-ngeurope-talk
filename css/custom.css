@@ -275,3 +275,12 @@ article.after::before {
   text-transform: lowercase;
   font-size: 2em;
 }
+
+.white-bg {
+  background-color: #FFF;
+}
+
+.width-100 {
+  width: 100%;
+  margin: 0;
+}
