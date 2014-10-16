@@ -209,7 +209,7 @@ var user = User.get({userId:123}, function() {
 
       <section>
         <div class="content">
-          <h2>So let's start</h2>
+          <h2>So let's start with the refactor</h2>
         </div>
       </section>
 
@@ -219,10 +219,41 @@ var user = User.get({userId:123}, function() {
         <div class="content">
           <div class="byline">
             <div class="classy">
+              the first thing I did is
+            </div>
+          </div>
+          <h2>analyze</h2>
+          <div class="byline">
+            <div class="classy">
+              the steps
+            </div>
+          </div>
+          <h2>Restangular does</h2>
+          <div class="unbrokenline"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h2>Image goes here</h2>
+          <h2>https://docs.google.com/a/gon.to/drawings/d/1_M9antO1MhAuwBTBtTlabS1_UI1Uceh5iiRhYcVFLkI/edit</h2>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <h2>Now I can start refactoring. However..</h2>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <div class="byline">
+            <div class="classy">
               having
             </div>
           </div>
-          <h2>onlye 1 file</h2>
+          <h2>only 1 file</h2>
           <div class="byline">
             <div class="classy">
               makes it
@@ -272,6 +303,12 @@ var user = User.get({userId:123}, function() {
 
       <section>
         <div class="content">
+          <h2>So let's start coding now!</h2>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
           <h1>Extending Models</h1>
         </div>
       </section>
@@ -303,28 +340,9 @@ Restangular.config('users').setModelclass('User')
         </div>
       </section>
 
-      <section data-bespoke-state="after long">
+      <section>
         <div class="content">
-          <pre><code class="language-javascript">class RestangularBase extends Model {
-  save(params, headers) {
-    ...
-  }
-  ...
-}
-
-class RestangularResource extends RestangularBase {
-  put(elem, params, headers) {
-    ...
-  }
-  ...
-}
-
-class RestangularCollectionResource extends RestangularBase {
-  post(elem, params, headers) {
-    ...
-  }
- ...
-}</code></pre>
+          <img src="img/restangularclasses.png" alt="Restangular classes">
         </div>
       </section>
 
