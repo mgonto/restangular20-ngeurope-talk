@@ -251,6 +251,15 @@ article.after::before {
   background-color: #07B;
 }
 
+article.learning::before {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+  background-image: url('../img/learning-angular.png');
+  /*background-size: contain;*/
+}
+
+
 .profile {
   margin: 0 auto;
   width: 300px;
