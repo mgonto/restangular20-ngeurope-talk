@@ -305,3 +305,7 @@ article.learning::before {
 .text-left {
   text-align: left;
 }
+
+.black {
+  color: #000;
+}
